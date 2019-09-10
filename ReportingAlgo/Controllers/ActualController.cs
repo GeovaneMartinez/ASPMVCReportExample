@@ -10,7 +10,7 @@ namespace ReportingAlgo.Controllers
     public class ActualController : Controller
     {
         AlpacaEntities dbcontext = new AlpacaEntities();
-        string _username = "geovanem@msn.com";
+        string _username = "xxxxxxxx";
 
         public ActionResult Index()
         {
