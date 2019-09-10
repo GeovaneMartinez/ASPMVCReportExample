@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ReportingAlgo.Log>
+@{
+    ViewBag.Title = "Log";
+}
+<div>@Html.ActionLink("Home", "Index", "Home")</div>
+<h2>Log</h2>
+
+@foreach (var item in Model)
+{
+    <p>@item.timestamp</p>
+}
+

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ReportingAlgo.EditTradeResultsView>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div></div>
+<div>
+    @*<a href="/UpdateActual/InsertNewTrades" target="_blank">Insert New Trades</a>*@
+    <a href="#" class="openModal" data-toggle="modal" data-target="#myModal">Insert New Trades</a>
+    <span style="padding-left:40px;"></span>
+    <a href="/Actual/EditLABUPrice">Edit LABU</a>
+    <span style="padding-left:5px;"></span>
+    <a href="/Actual/EditLABDPrice">Edit LABD<span style="padding-left:5px;"></span></a>
+    <a href="/Actual/Allocations">Allocations</a>
+</div>
+<div><a href="/Account/Logout">Logout</a></div>
+<br />
+
+<table>
+    <tr>
+        <th style="width: 90px;">Date</th>
+        <th style="width: 140px;">Strategy</th>
+        <th style="width: 50px;">Shares</th>
+        <th style="width: 80px;">StartPrice</th>
+        <th style="width: 80px;">ActualStart</th>
+        <th style="width: 80px;">EndPrice</th>
+        <th style="width: 80px;">ActualEnd</th>
+        <th style="width: 80px;">DiffPerShare</th>
+        <th style="width: 80px;">DiffTotal</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width: 90px;">@item.Date</td>
+            <td><a href="/Actual/EditPrice/@item.ID">@item.Strategy</a></td>
+            <td>@item.Shares</td>
+            <td>@item.StartingPrice</td>
+            <td>@item.ActualStartingPrice</td>
+            <td>@item.EndingPrice</td>
+            <td>@item.ActualEndingPrice</td>
+            <td>@item.DifferencePerShare</td>
+            <td>@item.DifferenceTotal</td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+<br />
+<br />
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align:center;">Modal Header</h4>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default closeModal" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.openModal').click(function () {
+
+
+            // AJAX request
+            $.ajax({
+                url: '/UpdateActual/InsertNewTrades',
+                type: 'get',
+                success: function (data) {
+
+                    for (dataObj in data) {
+                        var firstObject = data[dataObj];
+                    }
+                    // Add response in Modal body
+                    $('.modal-body').html(firstObject);
+
+                }
+            });
+        });
+
+
+
+
+    });
+
+    $('.closeModal').click(function () {
+
+        window.location.href = "/Actual/EditTransactionsPage";
+    });
+
+
+</script>
+
+

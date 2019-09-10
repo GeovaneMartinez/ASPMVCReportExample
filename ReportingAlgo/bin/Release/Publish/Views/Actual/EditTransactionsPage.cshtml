@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ReportingAlgo.EditTradeResultsView>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div></div>
+<div><a href="/UpdateActual/InsertNewTrades" target="_blank">Insert New Trades</a></div>
+<br />
+
+<table>
+    <tr>
+        <th style="width: 90px;">Date</th>
+        <th style="width: 140px;">Strategy</th>
+        <th style="width: 50px;">Shares</th>
+        <th style="width: 80px;">StartPrice</th>
+        <th style="width: 80px;">ActualStart</th>
+        <th style="width: 80px;">EndPrice</th>
+        <th style="width: 80px;">ActualEnd</th>
+        <th style="width: 80px;">DiffPerShare</th>
+        <th style="width: 80px;">DiffTotal</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td style="width: 90px;">@item.Date</td>
+        <td><a href="/Actual/EditPrice/@item.ID" target="_blank">@item.Strategy</a></td>
+        <td>@item.Shares</td>
+        <td>@item.StartingPrice</td>
+        <td>@item.ActualStartingPrice</td>
+        <td>@item.EndingPrice</td>
+        <td>@item.ActualEndingPrice</td>
+        <td>@item.DifferencePerShare</td>
+        <td>@item.DifferenceTotal</td>
+    </tr>
+    }
+
+</table>
+
+
+
+
+<br />
+<br />
+
+

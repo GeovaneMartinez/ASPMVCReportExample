@@ -1,0 +1,318 @@
+﻿@model ReportingAlgo.ActualTransactions
+
+@{
+    ViewBag.Title = "EditPrice";
+}
+
+<h2>EditPrice</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>ActualTransactions</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="left-column">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartingLABUPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartingLABUPrice, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.StartingLABUPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartingLABDPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartingLABDPrice, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.StartingLABDPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Strategy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Strategy, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Strategy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartingType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartingType, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.StartingType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Shares, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Shares, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Shares, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndingLABUPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndingLABUPrice, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.EndingLABUPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndingLABDPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndingLABDPrice, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.EndingLABDPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Reason, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Reason, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Reason, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="right-column">
+
+        @if (ViewBag.TheStrategy.Equals("ShortMorningSpike"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("NineFortyFiveSpike"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("TenAmSpike"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("Breakdown"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("Breakout"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABUStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABUStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABUStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABUEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABUEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABUEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("ShortBreakout"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("jnugBreakout"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABUStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABUStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABUStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABUEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABUEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABUEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("jnugShort"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("GushShortTwoPercent"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABDEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABDEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABDEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.TheStrategy.Equals("GapDownReversal"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABUStartingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABUStartingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABUStartingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActualLABUEndingPrice, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.ActualLABUEndingPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ActualLABUEndingPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+}
+
+
+<style>
+
+    .left-column {
+        float: left;
+        width: 50%;
+    }
+    .right-column {
+        float: left;
+        width: 50%;
+    }
+</style>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

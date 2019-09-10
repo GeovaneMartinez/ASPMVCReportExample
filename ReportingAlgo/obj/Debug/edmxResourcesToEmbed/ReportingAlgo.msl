@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AlgoExampleModelStoreContainer" CdmEntityContainer="AlpacaEntities">
+    <EntitySetMapping Name="ClosingPosition">
+      <EntityTypeMapping TypeName="AlgoExampleModel.ClosingPosition">
+        <MappingFragment StoreEntitySet="ClosingPosition">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LABUPrice" ColumnName="LABUPrice" />
+          <ScalarProperty Name="LABDPrice" ColumnName="LABDPrice" />
+          <ScalarProperty Name="LimitPrice" ColumnName="LimitPrice" />
+          <ScalarProperty Name="Strategy" ColumnName="Strategy" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="mapping" ColumnName="mapping" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LABU">
+      <EntityTypeMapping TypeName="AlgoExampleModel.LABU">
+        <MappingFragment StoreEntitySet="LABU">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="open" ColumnName="open" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="close" ColumnName="close" />
+          <ScalarProperty Name="volume" ColumnName="volume" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="AlgoExampleModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StartingPosition">
+      <EntityTypeMapping TypeName="AlgoExampleModel.StartingPosition">
+        <MappingFragment StoreEntitySet="StartingPosition">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LABUPrice" ColumnName="LABUPrice" />
+          <ScalarProperty Name="LABDPrice" ColumnName="LABDPrice" />
+          <ScalarProperty Name="LimitPrice" ColumnName="LimitPrice" />
+          <ScalarProperty Name="Strategy" ColumnName="Strategy" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="mapping" ColumnName="mapping" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="apGetLastClosingPrice" FunctionName="AlgoExampleModel.Store.apGetLastClosingPrice" />
+    <EntitySetMapping Name="ActualTransactions">
+      <EntityTypeMapping TypeName="AlgoExampleModel.ActualTransactions">
+        <MappingFragment StoreEntitySet="ActualTransactions">
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ActualLABDEndingPrice" ColumnName="ActualLABDEndingPrice" />
+          <ScalarProperty Name="ActualLABUEndingPrice" ColumnName="ActualLABUEndingPrice" />
+          <ScalarProperty Name="ActualLABDStartingPrice" ColumnName="ActualLABDStartingPrice" />
+          <ScalarProperty Name="ActualLABUStartingPrice" ColumnName="ActualLABUStartingPrice" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="EndingLABDPrice" ColumnName="EndingLABDPrice" />
+          <ScalarProperty Name="EndingLABUPrice" ColumnName="EndingLABUPrice" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="StartingType" ColumnName="StartingType" />
+          <ScalarProperty Name="Strategy" ColumnName="Strategy" />
+          <ScalarProperty Name="StartingLABDPrice" ColumnName="StartingLABDPrice" />
+          <ScalarProperty Name="StartingLABUPrice" ColumnName="StartingLABUPrice" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="apGetTrades" FunctionName="AlgoExampleModel.Store.apGetTrades">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AlgoExampleModel.apGetTrades_Result">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartingLABUPrice" ColumnName="StartingLABUPrice" />
+          <ScalarProperty Name="StartingLABDPrice" ColumnName="StartingLABDPrice" />
+          <ScalarProperty Name="Strategy" ColumnName="Strategy" />
+          <ScalarProperty Name="StartingType" ColumnName="StartingType" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="EndingLABUPrice" ColumnName="EndingLABUPrice" />
+          <ScalarProperty Name="EndingLABDPrice" ColumnName="EndingLABDPrice" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTrades" FunctionName="AlgoExampleModel.Store.GetTrades">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AlgoExampleModel.GetTrades_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartingLABUPrice" ColumnName="StartingLABUPrice" />
+          <ScalarProperty Name="StartingLABDPrice" ColumnName="StartingLABDPrice" />
+          <ScalarProperty Name="Strategy" ColumnName="Strategy" />
+          <ScalarProperty Name="StartingType" ColumnName="StartingType" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="EndingLABUPrice" ColumnName="EndingLABUPrice" />
+          <ScalarProperty Name="EndingLABDPrice" ColumnName="EndingLABDPrice" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="LABD">
+      <EntityTypeMapping TypeName="AlgoExampleModel.LABD">
+        <MappingFragment StoreEntitySet="LABD">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="volume" ColumnName="volume" />
+          <ScalarProperty Name="close" ColumnName="close" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="open" ColumnName="open" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Allocations">
+      <EntityTypeMapping TypeName="AlgoExampleModel.Allocations">
+        <MappingFragment StoreEntitySet="Allocations">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Strategy" ColumnName="Strategy" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JNUG">
+      <EntityTypeMapping TypeName="AlgoExampleModel.JNUG">
+        <MappingFragment StoreEntitySet="JNUG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="volume" ColumnName="volume" />
+          <ScalarProperty Name="close" ColumnName="close" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="open" ColumnName="open" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

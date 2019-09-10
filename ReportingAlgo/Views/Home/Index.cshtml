@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ReportingAlgo.TradeResults>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div></div>
+@Html.ActionLink("Log", "Log", "Home")
+<div>@Html.ActionLink("Actual Transactions", "Index", "Actual")</div>
+<br />
+
+
+<div>
+    AlgoExampleLABU lastupaded: @ViewBag.lastUpdatedAlgoExampleLABU
+    @if (ViewBag.AlgoExampleLABUUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+    <span style="padding-right:50px;"></span>@ViewBag.AlgoExampleLABUClosePrice
+</div>
+
+<div>
+    AlgoExampleLABD lastupaded: @ViewBag.lastUpdatedAlgoExampleLABD
+    @if (ViewBag.AlgoExampleLABDUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+    <span style="padding-right:50px;"></span>@ViewBag.AlgoExampleLABDClosePrice
+</div>
+
+<div>
+    AlgoExampleJNUG lastupaded: @ViewBag.lastUpdatedAlgoExampleJNUG
+    @if (ViewBag.AlgoExampleJNUGUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+    <span style="padding-right:50px;"></span>@ViewBag.AlgoExampleJNUGClosePrice
+</div>
+
+<br />
+
+<div>
+    HistoricalDB LABU lastupaded: @ViewBag.HistoricalDBLABUTimeStamp
+    @if (ViewBag.HistoricalDBLabuUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+</div>
+<div>
+    HistoricalDB LABD lastupaded: @ViewBag.HistoricalDBLABDTimeStamp
+    @if (ViewBag.HistoricalDBLabdUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+</div>
+<div>
+    HistoricalDB JNUG lastupaded: @ViewBag.HistoricalDBJNUGTimeStamp
+    @if (ViewBag.HistoricalDBjnugUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+</div>
+
+<br />
+
+
+<div></div>
+<div>@Html.ActionLink("Analyze Breakout", "Breakout", "Analyze", new { } , new { target = "_blank" })</div>
+<div>@Html.ActionLink("Analyze Breakdown", "Breakdown", "Analyze", new { }, new { target = "_blank" })</div>
+<div>@Html.ActionLink("Analyze TenAmSpike", "TenAmSpike", "Analyze", new { }, new { target = "_blank" })</div>
+<div>@Html.ActionLink("Analyze ShortMorningSpike", "ShortMorningSpike", "Analyze", new { }, new { target = "_blank" })</div>
+<div>@Html.ActionLink("Analyze JnugBreakout", "JnugBreakout", "Analyze", new { }, new { target = "_blank" })</div>
+<div>@Html.ActionLink("Analyze JnugShort", "JnugShort", "Analyze", new { }, new { target = "_blank" })</div>
+<div>@Html.ActionLink("Analyze GushShortTwoPercent", "GushShortTwoPercent", "Analyze", new { }, new { target = "_blank" })</div>
+
+<br />
+
+<div>@Html.ActionLink("Risk Index", "Index", "Risk", new { }, new { target = "_blank" })</div>
+<div>@Html.ActionLink("Monthly Perfomance", "Monthly", "Report", new { }, new { target = "_blank" })</div>
+
+@*<br />
+    <br />
+    <br />
+
+    <div>
+        @foreach (var item in ViewBag.Allocations)
+        {
+
+            <table>
+                <tr>
+                    <td style="width: 150px;">
+                        @item.Strategy
+                    </td>
+                    <td>
+                        @item.Amount
+                    </td>
+                </tr>
+            </table>
+
+        }
+
+    </div>*@

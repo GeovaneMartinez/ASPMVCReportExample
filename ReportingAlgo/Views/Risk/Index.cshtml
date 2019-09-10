@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ReportingAlgo.Models.RiskAmount>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div><a href="/Home/Index">Home</a></div>
+
+<h2>Risk Management</h2>
+
+<table>
+    <tr>
+        <th style="width: 150px;">Strategy</th>
+        <th style="width: 80px;">Amount</th>
+        <th style="width: 80px;">RiskPerc</th>
+        <th style="width: 80px;">RiskAmt</th>
+        <th style="width: 80px;">TargetPerc</th>
+        <th style="width: 80px;">TargetAmt</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td style="width: 150px;">@item.Strategy</td>
+        <td style="width: 80px;">@item.Amount</td>
+        <td style="width: 80px;">@item.RiskPercentage</td>
+        <td>@item.RiskDollarAmount</td>
+        <td>@item.TargetPercentage</td>
+        <td>@item.TargetAmount</td>
+    </tr>
+    }
+</table>

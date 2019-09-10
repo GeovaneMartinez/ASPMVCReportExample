@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlgoExampleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ClosingPosition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LABUPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LABDPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LimitPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Strategy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mapping" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Shares" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LABU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="open" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="high" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="low" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="close" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="volume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="StartingPosition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LABUPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LABDPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LimitPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Strategy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mapping" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Shares" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="AlpacaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ClosingPosition" EntityType="Self.ClosingPosition" />
+    <EntitySet Name="LABU" EntityType="Self.LABU" />
+    <EntitySet Name="Log" EntityType="Self.Log" />
+    <EntitySet Name="StartingPosition" EntityType="Self.StartingPosition" />
+    <FunctionImport Name="apGetLastClosingPrice" />
+    <FunctionImport Name="apGetTransactions" ReturnType="Collection(AlgoExampleModel.apGetTransactions_Result)" />
+    <EntitySet Name="ActualTransactions" EntityType="AlgoExampleModel.ActualTransactions" />
+    <FunctionImport Name="apGetTrades" ReturnType="Collection(AlgoExampleModel.apGetTrades_Result)" />
+    <FunctionImport Name="apGetTransactions1" ReturnType="Collection(AlgoExampleModel.apGetTransactions1_Result)" />
+    <FunctionImport Name="GetTrades" ReturnType="Collection(AlgoExampleModel.GetTrades_Result)" />
+    <EntitySet Name="LABD" EntityType="AlgoExampleModel.LABD" />
+    <EntitySet Name="Allocations" EntityType="AlgoExampleModel.Allocations" />
+    <EntitySet Name="JNUG" EntityType="AlgoExampleModel.JNUG" />
+  </EntityContainer>
+  <ComplexType Name="apGetTransactions_Result">
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Strategy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingType" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Shares" Nullable="true" />
+    <Property Type="String" Name="EndingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="ActualTransactions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartingLABUPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartingLABDPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Strategy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartingType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Shares" Type="Int32" />
+    <Property Name="EndingLABUPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EndingLABDPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActualLABUStartingPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActualLABDStartingPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActualLABUEndingPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActualLABDEndingPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="apGetTrades_Result">
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Strategy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingType" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Shares" Nullable="true" />
+    <Property Type="String" Name="EndingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="apGetTransactions1_Result">
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Strategy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingType" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Shares" Nullable="true" />
+    <Property Type="String" Name="EndingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetTrades_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Strategy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StartingType" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Shares" Nullable="true" />
+    <Property Type="String" Name="EndingLABUPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndingLABDPrice" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndDate" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="LABD">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="open" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="high" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="low" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="close" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="volume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Allocations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Strategy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="JNUG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="open" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="high" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="low" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="close" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="volume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

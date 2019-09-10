@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlgoExampleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActualTransactions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="StartingLABUPrice" Type="varchar" MaxLength="50" />
+    <Property Name="StartingLABDPrice" Type="varchar" MaxLength="50" />
+    <Property Name="Strategy" Type="varchar" MaxLength="50" />
+    <Property Name="StartingType" Type="varchar" MaxLength="50" />
+    <Property Name="Shares" Type="int" />
+    <Property Name="EndingLABUPrice" Type="varchar" MaxLength="50" />
+    <Property Name="EndingLABDPrice" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Reason" Type="varchar" MaxLength="50" />
+    <Property Name="ActualLABUStartingPrice" Type="varchar" MaxLength="50" />
+    <Property Name="ActualLABDStartingPrice" Type="varchar" MaxLength="50" />
+    <Property Name="ActualLABUEndingPrice" Type="varchar" MaxLength="50" />
+    <Property Name="ActualLABDEndingPrice" Type="varchar" MaxLength="50" />
+    <Property Name="EndDate" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Allocations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Strategy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="ClosingPosition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="LABUPrice" Type="varchar" MaxLength="50" />
+    <Property Name="LABDPrice" Type="varchar" MaxLength="50" />
+    <Property Name="LimitPrice" Type="varchar" MaxLength="50" />
+    <Property Name="Strategy" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="mapping" Type="varchar" MaxLength="50" />
+    <Property Name="Shares" Type="int" />
+    <Property Name="Reason" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JNUG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="varchar" MaxLength="50" />
+    <Property Name="open" Type="varchar" MaxLength="50" />
+    <Property Name="high" Type="varchar" MaxLength="50" />
+    <Property Name="low" Type="varchar" MaxLength="50" />
+    <Property Name="close" Type="varchar" MaxLength="50" />
+    <Property Name="volume" Type="varchar" MaxLength="50" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LABD">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="varchar" MaxLength="50" />
+    <Property Name="open" Type="varchar" MaxLength="50" />
+    <Property Name="high" Type="varchar" MaxLength="50" />
+    <Property Name="low" Type="varchar" MaxLength="50" />
+    <Property Name="close" Type="varchar" MaxLength="50" />
+    <Property Name="volume" Type="varchar" MaxLength="50" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LABU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="varchar" MaxLength="50" />
+    <Property Name="open" Type="varchar" MaxLength="50" />
+    <Property Name="high" Type="varchar" MaxLength="50" />
+    <Property Name="low" Type="varchar" MaxLength="50" />
+    <Property Name="close" Type="varchar" MaxLength="50" />
+    <Property Name="volume" Type="varchar" MaxLength="50" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="timestamp" Type="varchar" MaxLength="200" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StartingPosition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="LABUPrice" Type="varchar" MaxLength="50" />
+    <Property Name="LABDPrice" Type="varchar" MaxLength="50" />
+    <Property Name="LimitPrice" Type="varchar" MaxLength="50" />
+    <Property Name="Strategy" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="mapping" Type="varchar" MaxLength="50" />
+    <Property Name="Shares" Type="int" />
+  </EntityType>
+  <Function Name="apGetLastClosingPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="apGetTrades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTrades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="AlgoExampleModelStoreContainer">
+    <EntitySet Name="ActualTransactions" EntityType="Self.ActualTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Allocations" EntityType="Self.Allocations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClosingPosition" EntityType="Self.ClosingPosition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JNUG" EntityType="Self.JNUG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LABD" EntityType="Self.LABD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LABU" EntityType="Self.LABU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StartingPosition" EntityType="Self.StartingPosition" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

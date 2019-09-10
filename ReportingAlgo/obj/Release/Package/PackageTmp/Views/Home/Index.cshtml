@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ReportingAlgo.TradeResults>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div></div>
+<div><a href="/Home/Log">Log</a></div>
+<div><a href="/Actual/Index">Transactions</a></div>
+<br />
+
+
+<div>
+    AlgoExampleLABU lastupaded: @ViewBag.lastUpdatedAlgoExampleLABU
+    @if (ViewBag.AlgoExampleLABUUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+    <span style="padding-right:50px;"></span>@ViewBag.AlgoExampleLABUClosePrice
+</div>
+
+<div>
+    AlgoExampleLABD lastupaded: @ViewBag.lastUpdatedAlgoExampleLABD
+    @if (ViewBag.AlgoExampleLABDUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+    <span style="padding-right:50px;"></span>@ViewBag.AlgoExampleLABDClosePrice
+</div>
+
+<div>
+    AlgoExampleJNUG lastupaded: @ViewBag.lastUpdatedAlgoExampleJNUG
+    @if (ViewBag.AlgoExampleJNUGUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+    <span style="padding-right:50px;"></span>@ViewBag.AlgoExampleJNUGClosePrice
+</div>
+
+<br />
+
+<div>
+    HistoricalDB LABU lastupaded: @ViewBag.HistoricalDBLABUTimeStamp
+    @if (ViewBag.HistoricalDBLabuUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+</div>
+<div>
+    HistoricalDB LABD lastupaded: @ViewBag.HistoricalDBLABDTimeStamp
+    @if (ViewBag.HistoricalDBLabdUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+</div>
+<div>
+    HistoricalDB JNUG lastupaded: @ViewBag.HistoricalDBJNUGTimeStamp
+    @if (ViewBag.HistoricalDBjnugUpdated.Equals("true"))
+    {
+        <img src="~/Content/images/green_check.png" style="height:12px;width:12px;" />
+    }
+    else
+    {
+        <img src="~/Content/images/red_x.png" style="height:12px;width:12px;" />
+    }
+</div>
+
+<br />
+
+
+<div></div>
+<div><a href="/Analyze/Breakout" target="_blank">Analyze Breakout</a></div>
+<div><a href="/Analyze/Breakdown" target="_blank">Analyze Breakdown</a></div>
+<div><a href="/Analyze/TenAmSpike" target="_blank">Analyze TenAmSpike</a></div>
+<div><a href="/Analyze/ShortMorningSpike" target="_blank">Analyze ShortMorningSpike</a></div>
+<div><a href="/Analyze/jnugBreakout" target="_blank">Analyze Jnug Breakout</a></div>
+<div><a href="/Analyze/jnugShort" target="_blank">Analyze Jnug Short</a></div>
+<div><a href="/Analyze/GushShortTwoPercent" target="_blank">Analyze GushShortTwoPercent</a></div>
+<br />
+
+
+<div><a href="/Risk/Index" target="_blank">Risk Index</a></div>
+<div><a href="/Report/Monthly" target="_blank">Monthly Performance</a></div>
+
+@*<br />
+    <br />
+    <br />
+
+    <div>
+        @foreach (var item in ViewBag.Allocations)
+        {
+
+            <table>
+                <tr>
+                    <td style="width: 150px;">
+                        @item.Strategy
+                    </td>
+                    <td>
+                        @item.Amount
+                    </td>
+                </tr>
+            </table>
+
+        }
+
+    </div>*@
