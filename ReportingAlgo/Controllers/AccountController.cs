@@ -9,8 +9,8 @@ namespace ReportingAlgo.Controllers
 {
     public class AccountController : Controller
     {
-        string _username = "geovanem@msn.com";
-        string _password = "Spiderman!23";
+        string _username = "xxxxxxxx";
+        string _password = "xxxxxxxx";
 
         
 
